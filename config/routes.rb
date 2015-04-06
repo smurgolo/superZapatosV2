@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
-  resources :articles, except: [:new, :edit]
-  resources :articles, except: [:new, :edit]
-  resources :stores, except: [:new, :edit]
+  namespace :api, defaults: {format: 'json'} do
+    namespace :v2 do
+      resources :articles, except: [:new, :edit]
+      resources :stores, except: [:new, :edit]
+    end
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
