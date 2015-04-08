@@ -10,7 +10,7 @@
   @store = Store.create(name: Faker::Name.name, address: Faker::Address.street_address)
   puts "***Store id: #{@store.id} created ***"
   rand(12).times do
-    @article = Article.create(name: Faker::Name.name, description: Faker::Lorem.sentence, price: Faker::Number.number(3), total_in_shelf: Faker::Number.number(2))
+    @article = Article.create(name: Faker::Name.name, description: Faker::Lorem.sentence, price: Faker::Number.number(3), total_in_shelf: Faker::Number.number(2), total_in_vault: Faker::Number.number(2))
     puts "***Article id: #{@article.id} created ***"
     @store.articles << @article
   end

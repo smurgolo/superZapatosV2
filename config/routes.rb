@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   namespace :api, defaults: {format: 'json'} do
     namespace :v2 do
-      resources :articles, except: [:new, :edit]
-      resources :stores, except: [:new, :edit]
+      resources :articles
+      resources :shoe_stores  do
+        resources :articles
+      end
     end
   end
 
