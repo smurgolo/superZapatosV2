@@ -1,11 +1,7 @@
 class StoreSerializer < ActiveModel::Serializer
-  attributes :id,  :name, :address, :articles, :articles_count
+  embed :ids, embed_in_root: true, include: true
 
-  has_many  articles
+  attributes :id,  :name, :address
 
-  def articles_count
-    object.articles.count
-  end
-
-
+  has_many  :articles
 end
